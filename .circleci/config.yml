@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: google/cloud-sdk:latest
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+          version: 18.09.3
+      - run:
+          name: Authenticate gcloud to push the image
+          command: |
+            echo $GCP_SERVICE_KEY | gcloud auth activate-service-account --key-file -
+            gcloud auth configure-docker --quiet
+      - run:
+          name: Build the image
+          command: |
+            docker build -t $GCR_REPO:${CIRCLE_SHA1} .
+      - run:
+          name: Push the image
+          command: |
+            docker push $GCR_REPO:${CIRCLE_SHA1}
