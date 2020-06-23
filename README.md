@@ -1,6 +1,6 @@
 # Kubernetes Cloudflare Sync
 
-[![Docker Repository on Quay](https://quay.io/repository/calebdoxsey/kubernetes-cloudflare-sync/status "Docker Repository on Quay")](https://quay.io/repository/calebdoxsey/kubernetes-cloudflare-sync)
+[![CircleCI](https://circleci.com/gh/yosukes-dev/kubernetes-cloudflare-sync.svg?style=svg)](https://circleci.com/gh/yosukes-dev/kubernetes-cloudflare-sync)
 
 This App is intended to run in your Kubernetes Cluster on GKE and sync DNS records on Cloudflare with your nodes IPs.
 
